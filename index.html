@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameVault | Game Store</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="navbar">
+        <a href="#" class="logo">GAME<span>VAULT</span></a>
+
+        <nav>
+            <a href="#home">Beranda</a>
+            <a href="#catalog">Katalog</a>
+            <a href="#order">Pesan Game</a>
+        </nav>
+
+        <a href="#catalog" class="nav-button">Jelajahi Game</a>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="eyebrow">YOUR NEXT ADVENTURE STARTS HERE</span>
+                <h1>Temukan Game.<br><span>Mulai Petualangan.</span></h1>
+                <p>
+                    Jelajahi berbagai game favoritmu, temukan petualangan baru,
+                    dan pesan game pilihanmu dengan mudah di GameVault.
+                </p>
+                <a href="#catalog" class="primary-button">Lihat Koleksi Game</a>
+                <div class="hero-stats">
+                    <div><strong>100+</strong><small>Game Pilihan</small></div>
+                    <div><strong>24/7</strong><small>Akses Online</small></div>
+                    <div><strong>Easy</strong><small>Proses Pemesanan</small></div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img
+                    src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1000&q=85"
+                    alt="Suasana gaming">
+                <div class="floating-card">
+                    <span>GAMEVAULT COLLECTION</span>
+                    <strong>Level Up Your Play</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog section" id="catalog">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">GAME COLLECTION</span>
+                    <h2>Jelajahi Katalog</h2>
+                    <p>Pilih game yang sesuai dengan gaya bermainmu.</p>
+                </div>
+                <span class="catalog-count" id="gameCount">Memuat game...</span>
+            </div>
+
+            <div class="toolbar">
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Cari judul game..."
+                    aria-label="Cari game">
+
+                <select id="categoryFilter" aria-label="Filter kategori">
+                    <option value="all">Semua Kategori</option>
+                    <option value="action">Action</option>
+                    <option value="adventure">Adventure</option>
+                    <option value="rpg">RPG</option>
+                    <option value="simulation">Simulation</option>
+                    <option value="sports">Sports</option>
+                </select>
+
+                <select id="sortFilter" aria-label="Urutkan harga">
+                    <option value="default">Urutan Default</option>
+                    <option value="low">Harga Terendah</option>
+                    <option value="high">Harga Tertinggi</option>
+                    <option value="name">Nama A-Z</option>
+                </select>
+            </div>
+
+            <p class="api-status" id="apiStatus" role="status">
+                Menyiapkan katalog game...
+            </p>
+
+            <div class="game-grid" id="gameGrid">
+                <div class="loading">Sedang memuat katalog game...</div>
+            </div>
+        </section>
+
+        <section class="order-section section" id="order">
+            <div class="order-intro">
+                <span class="eyebrow">ORDER YOUR GAME</span>
+                <h2>Game Pilihanmu,<br><span>Siap Dimulai.</span></h2>
+                <p>
+                    Isi formulir pemesanan dengan data yang benar.
+                    Pilih game terlebih dahulu dari katalog untuk
+                    mengisi detail pesanan secara otomatis.
+                </p>
+
+                <div class="order-note">
+                    <strong>Informasi</strong>
+                    <p>
+                        Website ini merupakan proyek demonstrasi.
+                        Pemesanan tidak memproses pembayaran sungguhan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <h3>Formulir Pemesanan</h3>
+                <p class="form-subtitle">Lengkapi informasi berikut.</p>
+
+                <form id="orderForm">
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="customerName">Nama Lengkap</label>
+                            <input
+                                type="text"
+                                id="customerName"
+                                name="customerName"
+                                placeholder="Masukkan nama"
+                                minlength="3"
+                                required>
+                        </div>
+
+                        <div class="field">
+                            <label for="customerEmail">Email</label>
+                            <input
+                                type="email"
+                                id="customerEmail"
+                                name="customerEmail"
+                                placeholder="nama@email.com"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="selectedGame">Game yang Dipilih</label>
+                        <select id="selectedGame" name="selectedGame" required>
+                            <option value="">Pilih game dari katalog</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="orderType">Jenis Pembelian</label>
+                            <select id="orderType" name="orderType" required>
+                                <option value="personal">Personal</option>
+                                <option value="gift">Gift / Hadiah</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="paymentMethod">Metode Pembayaran</label>
+                            <select id="paymentMethod" name="paymentMethod" required>
+                                <option value="">Pilih metode</option>
+                                <option value="Transfer Bank">Transfer Bank</option>
+                                <option value="E-Wallet">E-Wallet</option>
+                                <option value="Virtual Account">Virtual Account</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="orderNote">Catatan (Opsional)</label>
+                        <textarea
+                            id="orderNote"
+                            name="orderNote"
+                            rows="3"
+                            placeholder="Tulis catatan jika diperlukan"></textarea>
+                    </div>
+
+                    <div class="order-summary">
+                        <div>
+                            <span>Game</span>
+                            <strong id="summaryGame">Belum dipilih</strong>
+                        </div>
+                        <div>
+                            <span>Total Harga</span>
+                            <strong id="summaryPrice">Rp0</strong>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="primary-button submit-button">
+                        Konfirmasi Pesanan
+                    </button>
+
+                    <p id="formMessage" class="form-message" role="status"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#home" class="logo">GAME<span>VAULT</span></a>
+        <p>© 2026 GameVault. Proyek website untuk pembelajaran.</p>
+        <a href="#home">Kembali ke atas ↑</a>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
